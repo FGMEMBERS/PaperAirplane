@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<sim>
+		<description>Paper airplane</description>
+		<status>production</status>
+		<author>Skyop (3d), Patrice Poly (Schleicher ASK 13 FDM)</author>
+		<flight-model>yasim</flight-model>
+		<aero>ask13</aero>
+
+		<model>
+			<path>Aircraft/PaperAirplane/Models/paperairplane.xml</path>
+			<livery>
+				<file>Blank</file>
+			</livery>
+		</model>
+
+		<chase-distance-m>-45</chase-distance-m>
+
+		<startup>
+			<splash-texture>Aircraft/PaperAirplane/splash.png</splash-texture>
+		</startup>
+
+		<flaps>
+			<setting>0</setting>
+			<setting>1</setting>
+		</flaps>
+
+		<menubar>
+			<default>
+				<menu n="100">
+					<label>Paper airplane</label>
+					<enabled type="bool">true</enabled>
+
+					<item>
+						<label>Select Stationary</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft.livery.dialog.toggle();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Find Aircraft for Aerotow</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 var node = props.globals.getNode("controls/aerotow/find-aircraft");
+							 node.setBoolValue(1);
+							 settimer(func
+							  {
+							  node.setBoolValue(0);
+							  }, 1);
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Lock/Unlock Aerotow Hook</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>sim/hitches/aerotow/open</property>
+						</binding>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 var node = props.globals.getNode("sim/hitches/aerotow/open");
+							 if (node.getBoolValue())
+							  {
+							  setprop("sim/messages/copilot", "Aerotow hook unlocked");
+							  }
+							 else
+							  {
+							  setprop("sim/messages/copilot", "Aerotow hook locked");
+							  }
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Add 500 ft of Altitude</label>
+						<binding>
+							<command>property-adjust</command>
+							<property>position/altitude-ft</property>
+							<step>500</step>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+	</sim>
+
+	<nasal>
+		<liveries>
+			<file>Aircraft/PaperAirplane/Nasal/liveries.nas</file>
+		</liveries>
+	</nasal>
+
+</PropertyList>

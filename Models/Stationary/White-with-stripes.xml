@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>White with stripes</name>
+				<front>White-with-stripes.png</front>
+				<back>White-with-stripes.png</back>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>
