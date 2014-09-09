@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>Blank</name>
+				<front>Blank.png</front>
+				<back>Blank.png</back>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>

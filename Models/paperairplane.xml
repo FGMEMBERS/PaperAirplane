@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<path>paperairplane.ac</path>
+
+	<!-- LIVERY SELECT -->
+	<!-- Animations -->
+	<animation>
+		<type>material</type>
+		<object-name>Front</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>front</texture-prop>
+		<texture>Blank.png</texture>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Back</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>back</texture-prop>
+		<texture>Blank.png</texture>
+	</animation>
+
+	<!-- Nasal code -->
+	<nasal>
+		<load>
+		 var livery_update = aircraft.livery_update.new("Aircraft/PaperAirplane/Models/Stationary");
+		</load>
+		<unload>
+		 livery_update.stop();
+		</unload>
+	</nasal>
+
+</PropertyList>
